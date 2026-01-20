@@ -1,6 +1,6 @@
 # Rulesets
 
-A personal collection of GitHub repository rulesets for solo developers and small teams, like me.
+A personal collection of GitHub repository rulesets for solo developers and small teams, like me. Inspired by the GitHub [Ruleset Recipies](https://github.com/github/ruleset-recipes) repository.
 
 ## About
 

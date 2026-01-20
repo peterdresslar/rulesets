@@ -1,4 +1,4 @@
-## 🛡️ Branch Rules & CI Standards
+## Branch Rules & CI Standards
 
 This repository prioritizes a working build over everything else. We use the **Solo-to-Small (With Tests)** ruleset to enforce quality control automatically.
 

@@ -1,6 +1,6 @@
-## 🛡️ Branch Rules & Workflow
+## Branch Rules & Workflow
 
-We aim to keep our history clean and safe. This repository uses the **Solo-to-Small** ruleset to enforce the following:
+We aim to keep our history clean and safe. This repository uses the "**Solo-to-Small**" ruleset to enforce the following:
 
 ### The "PR First" Policy
 Even for solo work or small fixes, **direct commits to the main branch are blocked.**
