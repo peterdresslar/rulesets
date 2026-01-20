@@ -36,8 +36,8 @@ cd rulesets
 Review the JSON files and pick the one that fits your project:
 
 ```bash
-cat solo-basic.json   # No CI requirements
-cat solo-tests.json   # Requires passing tests
+cat solo-to-small.json          # Solo or small team with no CI requirements
+cat solo-to-small-tests.json    # Solo or small team requires passing tests
 ```
 
 ### Step 3: Apply the ruleset to your repository
@@ -76,3 +76,50 @@ If your CI job isn't named `test`, update the context in `solo-tests.json`:
     }
 ]
 ```
+
+## Understanding Bypass Actors
+
+The `bypass_actors` setting controls who can skip the ruleset entirely. This is useful for emergencies or workflows where the admin needs flexibility. Solo users may not need this feature at all, but we intentionally add it since a bypass actor may become relevant very quickly as the repo grows.
+
+### How It Works
+
+```json
+"bypass_actors": [
+    {
+        "actor_id": 1,
+        "actor_type": "RepositoryRole",
+        "bypass_mode": "always"
+    }
+]
+```
+
+| Field | Description |
+|-------|-------------|
+| `actor_id` | The numeric ID of the actor. For `RepositoryRole`, `1` = Admin. For users, run `gh api user --jq '.id'` to get your ID. |
+| `actor_type` | Who can bypass: `RepositoryRole`, `OrganizationAdmin`, `Team`, or `Integration` |
+| `bypass_mode` | `always` = bypass anytime, `pull_request` = must still open a PR but can merge without meeting requirements |
+
+### Common Configurations
+
+**Let repository admins bypass everything:**
+```json
+{
+    "actor_id": 5,
+    "actor_type": "RepositoryRole",
+    "bypass_mode": "always"
+}
+```
+
+**Let a specific user bypass (e.g., yourself):**
+```json
+{
+    "actor_id": 2095978,
+    "actor_type": "User",
+    "bypass_mode": "always"
+}
+```
+Find your user ID with: `gh api user --jq '.id'`
+
+*Note*: Roles vary for GitHub Pro, Team, and Enterprise users, so if you are working on one of those accounts or within an organization this setting will require a bit of extra care.
+
+
