@@ -56,6 +56,8 @@ If you like, copy the relevant `[ruleset].md` content into your project's `CONTR
 
 ## Customization
 
+All customizations presented here can also be applied through the GitHub website interface.
+
 ### Changing the required approval count
 
 To require one approval before merging, edit the JSON:

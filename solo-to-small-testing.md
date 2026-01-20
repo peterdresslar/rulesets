@@ -1,9 +1,9 @@
 ## Branch Rules & CI Standards
 
-This repository prioritizes a working build over everything else. We use the **Solo-to-Small (With Tests)** ruleset to enforce quality control automatically.
+So that we can protect our work from major disruptions, this repository uses the "**Solo-to-Small-Testing**" ruleset to enforce the following:
 
 ### The "Green Build" Requirement
-We use GitHub Actions to verify code quality.
+The rules for this repo use GitHub Actions to verify code quality.
 *   **Status Checks:** You cannot merge a Pull Request until the automated tests (the `test` job) have passed.
 *   **Blocks:** If the tests fail, the merge button will be disabled. please fix the errors and push again.
 
